@@ -29,8 +29,8 @@ int main(int argc, char** argv){
 	namedWindow("The first frame.");
 	imshow("The first frame.", (*(*vecframes)[0]));
 
-	namedWindow("The 100th frame.");
-	imshow("The 100th frame.", (*(*vecframes)[99]));
+	namedWindow("The 130th frame.");
+	imshow("The 130th frame.", (*(*vecframes)[129]));
 
 	waitKey(0);
 
@@ -52,8 +52,12 @@ int readframes(String filename, unsigned stride, vector<Mat*>** vecframes){
 	 * undersample the frames according the constant stride (eg, if stride=2,
 	 * it will take only every other frame, if stride=3, it will take only one
 	 * in every 3 frames) and return in the vector of pointers for matrices that
-	 * store the frames
+	 * store the frames. The memory for vecframes is allocated by the function
+	 * and must be released by the calling function.
 	 */
+
+	//Allocating memory for vecframes
+	*vecframes = new vector<Mat*>();
 
 	//Video object that will be used for opening the video file
 	VideoCapture vid(filename);
