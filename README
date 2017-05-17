@@ -1,4 +1,5 @@
-This project is a implementation of a 3D scene reconstruction framework using OpenCV in C/C++ language. 
+This project is a implementation of a 3D scene reconstruction framework using OpenCV in C/C++ language. It contain a collection 
+of several Eclipse projects used for the implementation of the 3D scene reconstruction framework.
 This is part of the PhD research of the author at the University of Calgary under the guidance of Prof. Vassil Dimitrov in
 the Electrical and Computer Engineering Department.
 The project is currenlty under development and will several changes in the upcoming months.
