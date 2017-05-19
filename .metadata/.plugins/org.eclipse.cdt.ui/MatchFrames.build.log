@@ -1,15 +1,6 @@
-17:52:23 **** Incremental Build of configuration Release for project MatchFrames ****
+15:26:15 **** Incremental Build of configuration Release for project MatchFrames ****
 make all 
-Building file: ../match.cpp
-Invoking: Cross G++ Compiler
-g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"match.d" -MT"match.o" -o "match.o" "../match.cpp"
-Finished building: ../match.cpp
- 
-Building target: MatchFrames
-Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "MatchFrames"  ./match.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
-Finished building target: MatchFrames
- 
+make: Nothing to be done for 'all'.
 
-17:52:24 Build Finished (took 1s.221ms)
+15:26:15 Build Finished (took 87ms)
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="opencv_features2d" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
+	<item value="exiv2" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<item value="Default C++ source template" key="LastUsedSourceTemplate"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
 		<item value="726" key="DIALOG_WIDTH"/>
@@ -11,8 +11,12 @@
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>
+	<section name="RenameInformationPopup">
+	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="0" key="askReindex.detail"/>
+	</section>
+	<section name="CRenameRefactoringInputPage">
 	</section>
 	<section name="completion_proposal_size">
 		<item value="238" key="size.y"/>
