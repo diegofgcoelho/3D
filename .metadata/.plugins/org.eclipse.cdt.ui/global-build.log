@@ -8335,3 +8335,12 @@ Invoking: Cross G++ Linker
 g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
 Finished building target: ReadIntrisic
  
+21:20:37 **** Incremental Build of configuration Release for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+21:20:37 **** Incremental Build of configuration Release for project ReadFrames ****
+make all 
+make: Nothing to be done for 'all'.
+21:20:37 **** Incremental Build of configuration Release for project ReadIntrisic ****
+make all 
+make: Nothing to be done for 'all'.

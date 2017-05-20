@@ -1,6 +1,6 @@
-15:26:15 **** Incremental Build of configuration Release for project ReadFrames ****
+21:20:37 **** Incremental Build of configuration Release for project ReadFrames ****
 make all 
 make: Nothing to be done for 'all'.
 
-15:26:15 Build Finished (took 69ms)
+21:20:37 Build Finished (took 67ms)
 
