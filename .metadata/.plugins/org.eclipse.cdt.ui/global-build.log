@@ -1,64 +1,91 @@
-21:30:31 **** Incremental Build of configuration Debug for project ReadFrames ****
+23:05:40 **** Build of configuration Debug for project MatchFrames ****
 make all 
-Building file: ../read.cpp
+Building file: ../match.cpp
 Invoking: Cross G++ Compiler
-g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"match.d" -MT"match.o" -o "match.o" "../match.cpp"
+Finished building: ../match.cpp
  
-Building target: ReadFrames
+Building target: MatchFrames
 Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadFrames"  ./read.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio
-Finished building target: ReadFrames
+g++ -L/usr/local/lib -o "MatchFrames"  ./match.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: MatchFrames
  
-19:16:01 **** Build of configuration Debug for project ReadIntrisic ****
-make all 
-Building file: ../read.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-../read.cpp: In function ‘int main(int, char* const*)’:
-../read.cpp:67:29: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
-     if(iter = exifData.end()){
-                             ^
-../read.cpp:67:29: error: could not convert ‘(iter = std::_List_const_iterator<Exiv2::Exifdatum>((& exifData)->Exiv2::ExifData::end()))’ from ‘Exiv2::ExifData::const_iterator {aka std::_List_const_iterator<Exiv2::Exifdatum>}’ to ‘bool’
-subdir.mk:18: recipe for target 'read.o' failed
-make: *** [read.o] Error 1
-19:16:53 **** Incremental Build of configuration Debug for project ReadIntrisic ****
-make all 
-Building file: ../read.cpp
-Invoking: Cross G++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
- 
-Building target: ReadIntrisic
-Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
-Finished building target: ReadIntrisic
- 
-19:17:40 **** Clean-only build of configuration Release for project ReadIntrisic ****
+23:05:45 **** Clean-only build of configuration Release for project MatchFrames ****
 make clean 
-rm -rf  ./read.o  ./read.d  ReadIntrisic
+rm -rf  ./match.o  ./match.d  MatchFrames
  
-19:17:40 **** Incremental Build of configuration Release for project ReadIntrisic ****
+23:05:45 **** Incremental Build of configuration Release for project MatchFrames ****
 make all 
-Building file: ../read.cpp
+Building file: ../match.cpp
 Invoking: Cross G++ Compiler
-g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"match.d" -MT"match.o" -o "match.o" "../match.cpp"
+Finished building: ../match.cpp
  
-Building target: ReadIntrisic
+Building target: MatchFrames
 Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
-Finished building target: ReadIntrisic
+g++ -L/usr/local/lib -o "MatchFrames"  ./match.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: MatchFrames
  
-19:27:32 **** Incremental Build of configuration Release for project ReadIntrisic ****
+23:06:02 **** Incremental Build of configuration Debug for project MatchFrames ****
 make all 
-Building file: ../read.cpp
+make: Nothing to be done for 'all'.
+23:06:04 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:06:14 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:06:59 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+Building file: ../match.cpp
 Invoking: Cross G++ Compiler
-g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"match.d" -MT"match.o" -o "match.o" "../match.cpp"
+Finished building: ../match.cpp
  
-Building target: ReadIntrisic
+Building target: MatchFrames
 Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
-Finished building target: ReadIntrisic
+g++ -L/usr/local/lib -o "MatchFrames"  ./match.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: MatchFrames
  
+23:07:03 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:07:06 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:07:09 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:07:11 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:07:14 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:08:33 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+Building file: ../match.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"match.d" -MT"match.o" -o "match.o" "../match.cpp"
+Finished building: ../match.cpp
+ 
+Building target: MatchFrames
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "MatchFrames"  ./match.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: MatchFrames
+ 
+23:09:15 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:10:57 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:11:15 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:11:31 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.
+23:12:35 **** Incremental Build of configuration Debug for project MatchFrames ****
+make all 
+make: Nothing to be done for 'all'.

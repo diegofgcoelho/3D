@@ -1,15 +1,6 @@
-21:30:31 **** Incremental Build of configuration Debug for project ReadFrames ****
+21:46:11 **** Incremental Build of configuration Debug for project ReadFrames ****
 make all 
-Building file: ../read.cpp
-Invoking: Cross G++ Compiler
-g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
- 
-Building target: ReadFrames
-Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadFrames"  ./read.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio
-Finished building target: ReadFrames
- 
+make: Nothing to be done for 'all'.
 
-21:30:32 Build Finished (took 1s.26ms)
+21:46:11 Build Finished (took 81ms)
 

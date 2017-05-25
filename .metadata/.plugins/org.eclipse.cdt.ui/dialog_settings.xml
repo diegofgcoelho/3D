@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="exiv2" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
+	<item value="/usr/local/include/opencv" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<item value="Default C++ source template" key="LastUsedSourceTemplate"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
 		<item value="726" key="DIALOG_WIDTH"/>

@@ -1,6 +1,6 @@
-21:30:07 **** Incremental Build of configuration Debug for project MatchFrames ****
+23:12:35 **** Incremental Build of configuration Debug for project MatchFrames ****
 make all 
 make: Nothing to be done for 'all'.
 
-21:30:07 Build Finished (took 62ms)
+23:12:35 Build Finished (took 82ms)
 

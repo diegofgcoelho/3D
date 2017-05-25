@@ -1,15 +1,6 @@
-19:27:32 **** Incremental Build of configuration Release for project ReadIntrisic ****
+21:46:11 **** Incremental Build of configuration Release for project ReadIntrisic ****
 make all 
-Building file: ../read.cpp
-Invoking: Cross G++ Compiler
-g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
-Finished building: ../read.cpp
- 
-Building target: ReadIntrisic
-Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
-Finished building target: ReadIntrisic
- 
+make: Nothing to be done for 'all'.
 
-19:27:32 Build Finished (took 616ms)
+21:46:11 Build Finished (took 76ms)
 
