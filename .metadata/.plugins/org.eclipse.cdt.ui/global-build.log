@@ -89,3 +89,219 @@ make: Nothing to be done for 'all'.
 23:12:35 **** Incremental Build of configuration Debug for project MatchFrames ****
 make all 
 make: Nothing to be done for 'all'.
+09:42:26 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+09:42:34 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+09:43:15 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+09:43:48 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+09:44:19 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+09:46:08 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+09:48:40 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+09:56:03 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+12:46:53 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+12:51:23 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+13:05:59 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+../build.cpp: In function ‘int findfund(std::vector<cv::KeyPoint>**, std::vector<cv::KeyPoint>**, std::vector<cv::DMatch>**, Eigen::MatrixXd**)’:
+../build.cpp:254:15: warning: unused variable ‘ns’ [-Wunused-variable]
+  unsigned int ns = A.rows();
+               ^
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+13:06:22 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+13:06:30 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+13:15:43 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+13:16:01 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+14:57:25 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+14:57:36 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+15:00:49 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+15:02:35 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+../build.cpp: In function ‘int findfund(std::vector<cv::KeyPoint>**, std::vector<cv::KeyPoint>**, std::vector<cv::DMatch>**, Eigen::MatrixXd**)’:
+../build.cpp:263:15: error: invalid operands of types ‘<unresolved overloaded function type>’ and ‘float’ to binary ‘operator<<’
+   count << p1.x << endl;
+               ^
+subdir.mk:18: recipe for target 'build.o' failed
+make: *** [build.o] Error 1
+15:02:40 **** Incremental Build of configuration Release for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+15:02:46 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
+15:02:53 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.
+15:02:53 **** Incremental Build of configuration Debug for project BuildScene ****
+make all 
+make: Nothing to be done for 'all'.

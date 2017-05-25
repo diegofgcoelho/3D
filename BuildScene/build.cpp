@@ -54,7 +54,7 @@ int main(int argc, char** argv){
 		return FAIL;
 	}
 
-	unsigned int nframematch = (unsigned int) atoi(argv[1]);
+	unsigned int nframematch = 42;//(unsigned int) atoi(argv[1]);
 	cout << "This video have a total of " << vecframes->size() << " frames after the subsampling." << endl;
 	cout << "Displaying the features match for the frames ";
 	cout << nframematch;
@@ -74,6 +74,9 @@ int main(int argc, char** argv){
 		imshow("Matches", imgmatches);
 		cout << "getting inside"<<endl;
 		findfund(&(veckeypoints->at(nframematch)), &(veckeypoints->at(nframematch+1)), &(vecmatches->at(nframematch)), &pfund);
+		cout << "the fundamental matrix is "<< endl;
+		cout << *pfund << endl;
+
 	} else {
 		cout << "The matching for these frames is empty, as you can see." << endl;
 	}
@@ -255,16 +258,17 @@ int findfund(vector<KeyPoint>** veckeypoints0, vector<KeyPoint>** veckeypoints1,
 	for(unsigned int i = 0; i < (*vecmatches)->size()-1; i++){
 		//Defining temporary variables to store the corresponding keypoints pixels
 		Point2f p0 = (*veckeypoints0)->at((*vecmatches)->at(i).queryIdx).pt;
-		Point2f p1 = (*veckeypoints0)->at((*vecmatches)->at(i).trainIdx).pt;
-		A(0,i) = p1.x*p0.x;
-		A(1,i) = p1.x*p0.y;
-		A(2,i) = p1.x;
-		A(3,i) = p1.y*p0.x;
-		A(4,i) = p1.y*p0.y;
-		A(5,i) = p1.y;
-		A(6,i) = p0.x;
-		A(7,i) = p0.y;
-		A(8,i) = 1;
+		Point2f p1 = (*veckeypoints1)->at((*vecmatches)->at(i).trainIdx).pt;
+		A(i,0) = p1.x*p0.x;
+		cout << p1.x << endl;
+		A(i,1) = p1.x*p0.y;
+		A(i,2) = p1.x;
+		A(i,3) = p1.y*p0.x;
+		A(i,4) = p1.y*p0.y;
+		A(i,5) = p1.y;
+		A(i,6) = p0.x;
+		A(i,7) = p0.y;
+		A(i,8) = 1;
 	}
 
 	//Computing A^t*A
