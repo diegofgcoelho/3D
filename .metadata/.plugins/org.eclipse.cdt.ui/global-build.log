@@ -10,3 +10,55 @@ Invoking: Cross G++ Linker
 g++ -L/usr/local/lib -o "ReadFrames"  ./read.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio
 Finished building target: ReadFrames
  
+19:16:01 **** Build of configuration Debug for project ReadIntrisic ****
+make all 
+Building file: ../read.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
+../read.cpp: In function ‘int main(int, char* const*)’:
+../read.cpp:67:29: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if(iter = exifData.end()){
+                             ^
+../read.cpp:67:29: error: could not convert ‘(iter = std::_List_const_iterator<Exiv2::Exifdatum>((& exifData)->Exiv2::ExifData::end()))’ from ‘Exiv2::ExifData::const_iterator {aka std::_List_const_iterator<Exiv2::Exifdatum>}’ to ‘bool’
+subdir.mk:18: recipe for target 'read.o' failed
+make: *** [read.o] Error 1
+19:16:53 **** Incremental Build of configuration Debug for project ReadIntrisic ****
+make all 
+Building file: ../read.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
+Finished building: ../read.cpp
+ 
+Building target: ReadIntrisic
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
+Finished building target: ReadIntrisic
+ 
+19:17:40 **** Clean-only build of configuration Release for project ReadIntrisic ****
+make clean 
+rm -rf  ./read.o  ./read.d  ReadIntrisic
+ 
+19:17:40 **** Incremental Build of configuration Release for project ReadIntrisic ****
+make all 
+Building file: ../read.cpp
+Invoking: Cross G++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
+Finished building: ../read.cpp
+ 
+Building target: ReadIntrisic
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
+Finished building target: ReadIntrisic
+ 
+19:27:32 **** Incremental Build of configuration Release for project ReadIntrisic ****
+make all 
+Building file: ../read.cpp
+Invoking: Cross G++ Compiler
+g++ -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"read.d" -MT"read.o" -o "read.o" "../read.cpp"
+Finished building: ../read.cpp
+ 
+Building target: ReadIntrisic
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "ReadIntrisic"  ./read.o   -lexiv2
+Finished building target: ReadIntrisic
+ 
