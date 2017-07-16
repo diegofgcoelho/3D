@@ -28,6 +28,7 @@ using namespace Eigen;
 int readframes(String, unsigned, vector<Mat*>**);
 int matchframes(vector<Mat*>**, vector< vector<KeyPoint>* >**, vector< vector<DMatch>* >**);
 int findfund(vector<KeyPoint>**, vector<KeyPoint>**, vector<DMatch>**, MatrixXd**);
+int findmats(MatrixXd *fund, Mat* frame, MatrixXd **essential, MatrixXd **rotation, VectorXd **translation);
 
 int main(int argc, char** argv){
 	//Matrix to be the fundamental matrix
@@ -54,7 +55,7 @@ int main(int argc, char** argv){
 		return FAIL;
 	}
 
-	unsigned int nframematch = 42;//(unsigned int) atoi(argv[1]);
+	unsigned int nframematch = 41;//(unsigned int) atoi(argv[1]);
 	cout << "This video have a total of " << vecframes->size() << " frames after the subsampling." << endl;
 	cout << "Displaying the features match for the frames ";
 	cout << nframematch;
@@ -73,9 +74,20 @@ int main(int argc, char** argv){
 		drawMatches((*vecframes->at(nframematch)), (*veckeypoints->at(nframematch)), (*vecframes->at(nframematch+1)), (*veckeypoints->at(nframematch+1)), (*vecmatches->at(nframematch)), imgmatches);
 		imshow("Matches", imgmatches);
 		cout << "getting inside"<<endl;
+		//my implementation to find the fundamental matrix
 		findfund(&(veckeypoints->at(nframematch)), &(veckeypoints->at(nframematch+1)), &(vecmatches->at(nframematch)), &pfund);
+		MatrixXd *essential, *rotation;
+		VectorXd *translation;
+		findmats(pfund, vecframes->at(0), &essential, &rotation, &translation);
+		//comparing to the OpenCV implementation?no
 		cout << "the fundamental matrix is "<< endl;
 		cout << *pfund << endl;
+		cout << "the essential matrix is "<< endl;
+		cout << *essential << endl;
+		cout << "the rotation matrix and translation vector between these frames are"<< endl;
+		cout << *rotation << endl;
+		cout << "and" << endl;
+		cout << *translation << endl;
 
 	} else {
 		cout << "The matching for these frames is empty, as you can see." << endl;
@@ -297,6 +309,15 @@ int findfund(vector<KeyPoint>** veckeypoints0, vector<KeyPoint>** veckeypoints1,
 				(**pfundm)(i,j) = sol(j+3*i);
 			}
 		}
+
+		//Forcing Rank 2: removing the least singular value
+		JacobiSVD<MatrixXd> svd((**pfundm), ComputeThinU | ComputeThinV);
+		VectorXd singvalues = svd.singularValues();
+		//cout << "The singular values are " << svd.singularValues() << endl;
+		singvalues(2) = 0.0;
+		(**pfundm) = svd.matrixU()*DiagonalMatrix<double_t, 3, 3>(singvalues)*svd.matrixV().conjugate().transpose();
+		//Forcing unitary norm of the fundamental matrix
+		(**pfundm) /= (*pfundm)->norm();
 	}
 
 
@@ -304,4 +325,56 @@ int findfund(vector<KeyPoint>** veckeypoints0, vector<KeyPoint>** veckeypoints1,
 
 }
 
+int findmats(MatrixXd *fund, Mat* frame, MatrixXd **essential, MatrixXd **rotation, VectorXd **translation){
+	/*
+	 * Input:
+	 * fund is a pointer for the fundamental matrix
+	 * frame is a pointer for one of the frames of the video (can be any frame)
+	 * Output:
+	 * essential is a double pointer for the essential matrix
+	 * Description:
+	 * this function returns the essential matrix, the rotation matrix and the translation matrix.
+	 * The essential matrix is created with unitary amplification (alpha) and considering the
+	 * principal point as the center of the image. The memory for all the returned matrices are allocated
+	 * here and must be dealocated by the calling function.
+	 */
+
+	MatrixXd intr(3,3);//can be changed for fixed size in the future
+	intr = MatrixXd::Zero(3, 3);
+
+	intr(0,0) = 1.0;
+	intr(1,1) = 1.0;
+	intr(2,2) = 1.0;
+	intr(0,2) = (double)frame->rows/2;
+	intr(1,2) = (double)frame->cols/2;
+
+	*essential = new MatrixXd(3,3);//can be changed for fixed size in the future
+	**essential = intr.transpose()*(*fund)*intr;
+
+	//Temporary matrix to generate the rotation matrix and translation vector
+
+	MatrixXd temp(3,3);
+	temp = MatrixXd::Zero(3, 3);
+	temp(0,1) = -1.0;
+	temp(1,0) = 1.0;
+	temp(2,2) = 1.0;
+
+	JacobiSVD<MatrixXd> svd((**essential), ComputeThinU | ComputeThinV);
+
+	//Computing the rotation matrix
+	*rotation = new MatrixXd(3,3);
+	**rotation = svd.matrixU()*temp*svd.matrixV().transpose();
+
+	//Computing the translation vetor
+	temp = MatrixXd::Zero(3, 3);
+	temp(0,1) = 1.0;
+	temp(1,0) = -1.0;
+	MatrixXd tempT = svd.matrixU()*temp*svd.matrixU().transpose();
+	*translation = new VectorXd(3);
+	(**translation)(0) = tempT(2,1);
+	(**translation)(1) = -tempT(2,0);
+	(**translation)(2) = tempT(1,0);
+
+	return SUCCESS;
+}
 

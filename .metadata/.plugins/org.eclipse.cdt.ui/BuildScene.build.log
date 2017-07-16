@@ -1,6 +1,15 @@
-15:02:53 **** Incremental Build of configuration Debug for project BuildScene ****
+03:55:13 **** Build of configuration Release for project BuildScene ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../build.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
+Finished building: ../build.cpp
+ 
+Building target: BuildScene
+Invoking: Cross G++ Linker
+g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: BuildScene
+ 
 
-15:02:53 Build Finished (took 83ms)
+03:56:03 Build Finished (took 50s.549ms)
 
