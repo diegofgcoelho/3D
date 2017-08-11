@@ -5,6 +5,8 @@
  *      Author: Diego, PhD Candidate, UofC
  */
 
+#define CERES_FOUND true
+
 #include <opencv2/sfm.hpp>
 #include <opencv2/viz.hpp>
 #include <opencv2/calib3d.hpp>
