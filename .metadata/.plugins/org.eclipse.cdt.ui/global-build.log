@@ -890,3 +890,39 @@ Invoking: Cross G++ Linker
 g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
 Finished building target: BuildScene
  
+23:39:04 **** Build of configuration Debug for project reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+In file included from /usr/local/include/opencv2/sfm.hpp:42:0,
+                 from ../recon.cpp:8:
+/usr/local/include/opencv2/sfm/numeric.hpp:41:22: fatal error: Eigen/Core: No such file or directory
+subdir.mk:18: recipe for target 'recon.o' failed
+compilation terminated.
+make: *** [recon.o] Error 1
+23:39:39 **** Incremental Build of configuration Debug for project reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include/opencv -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+In file included from /usr/local/include/opencv2/sfm.hpp:42:0,
+                 from ../recon.cpp:8:
+/usr/local/include/opencv2/sfm/numeric.hpp:41:22: fatal error: Eigen/Core: No such file or directory
+subdir.mk:18: recipe for target 'recon.o' failed
+compilation terminated.
+make: *** [recon.o] Error 1
+23:44:57 **** Incremental Build of configuration Debug for project reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/local/include -I/usr/local/include/opencv -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int main(int, char**)’:
+../recon.cpp:67:81: error: ‘reconstruct’ was not declared in this scope
+   reconstruct(images_paths, Rs_est, ts_est, K, points3d_estimated, is_projective);
+                                                                                 ^
+../recon.cpp:85:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+   for (int i = 0; i < points3d_estimated.size(); ++i)
+                     ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1

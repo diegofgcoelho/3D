@@ -29,6 +29,7 @@ int readframes(String, unsigned, vector<Mat*>**);
 int matchframes(vector<Mat*>**, vector< vector<KeyPoint>* >**, vector< vector<DMatch>* >**);
 int findfund(vector<KeyPoint>**, vector<KeyPoint>**, vector<DMatch>**, MatrixXd**);
 int findmats(MatrixXd *fund, Mat* frame, MatrixXd **essential, MatrixXd **rotation, VectorXd **translation);
+int find3D(vector<KeyPoint>*, vector<KeyPoint>*, vector<MatrixXd>*, vector<VectorXd>*, MatrixXd**);
 
 int main(int argc, char** argv){
 	//Matrix to be the fundamental matrix
@@ -365,7 +366,7 @@ int findmats(MatrixXd *fund, Mat* frame, MatrixXd **essential, MatrixXd **rotati
 	*rotation = new MatrixXd(3,3);
 	**rotation = svd.matrixU()*temp*svd.matrixV().transpose();
 
-	//Computing the translation vetor
+	//Computing the translation vector
 	temp = MatrixXd::Zero(3, 3);
 	temp(0,1) = 1.0;
 	temp(1,0) = -1.0;
@@ -378,3 +379,33 @@ int findmats(MatrixXd *fund, Mat* frame, MatrixXd **essential, MatrixXd **rotati
 	return SUCCESS;
 }
 
+
+//TODO
+int find3D(vector<KeyPoint>* points2D0, vector<KeyPoint>* points2D1, vector<MatrixXd>* rotation, vector<VectorXd>* translation, MatrixXd** points3D){
+	/*
+	 * Input:
+	 * points2D0 and points2D1 are vectors of keypoints in 2D to be mapped to 3D
+	 * rotation and translaton represent the rotation matrix and the translation vector
+	 * Output:
+	 * points3D is a matrix with 4 columns representing 3D points in homogenous representation
+	 * Description:
+	 * This function finds the 3D points based on the 2D points in points2D0 and points2D1 related by the ratation matrix
+	 * and translation vector given by rotation and translation
+	 */
+
+	//Sanity check:
+
+	for(unsigned int i = 0; i < points2D0->size(); i++){
+		MatrixXd tempMat = MatrixXd::Zero(3, 3);
+		VectorXd tempVec = translation->at(i);
+		tempMat(1,1) = -tempVec(2);
+		tempMat(1,2) = tempVec(1);
+		tempMat(1,0) = tempVec(2);
+		tempMat(1,2) = -tempVec(0);
+		tempMat(2,0) = -tempVec(1);
+		tempMat(2,1) = tempVec(0);
+
+
+	}
+
+}
