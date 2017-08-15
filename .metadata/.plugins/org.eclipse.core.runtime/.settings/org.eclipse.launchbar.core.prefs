@@ -1,6 +1,6 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:ReadFrames,org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_R,org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_D,org.eclipse.launchbar.core.descriptorType.default\:BuildScene
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:BuildScene Release,org.eclipse.launchbar.core.descriptorType.default\:ReadFrames,org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_R,org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_D,org.eclipse.launchbar.core.descriptorType.default\:BuildScene,org.eclipse.launchbar.core.descriptorType.default\:Reconstruct_Release,org.eclipse.launchbar.core.descriptorType.default\:Reconstruct_Debug
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:BuildScene/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:MatchFrames\ (1)/activeLaunchMode=profile
@@ -9,3 +9,8 @@ org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_D/activeLaunchMod
 org.eclipse.launchbar.core.descriptorType.default\:MatchFrames_R/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:ReadFrames/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:ReadFrames/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Reconstruct/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:Reconstruct/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Reconstruct_Release/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:reconstruct/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:reconstruct/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

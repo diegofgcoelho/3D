@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="/home/diego/softwares/opencv-3.3/build-all-modules/lib" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
+	<item value="false" key="LexicalSortingAction.sort"/>
 	<item value="Default C++ source template" key="LastUsedSourceTemplate"/>
 	<section name="org.eclipse.cdt.ui.OPEN_ACTION_SELECTION_DIALOG_SECTION">
 		<item value="726" key="DIALOG_WIDTH"/>

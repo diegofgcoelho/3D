@@ -1,10 +1,15 @@
-16:17:13 **** Incremental Build of configuration Debug for project reconstruct ****
+15:48:59 **** Incremental Build of configuration Debug for project reconstruct ****
 make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
 Building target: reconstruct
 Invoking: Cross G++ Linker
 g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
 Finished building target: reconstruct
  
 
-16:17:14 Build Finished (took 381ms)
+15:49:01 Build Finished (took 2s.301ms)
 

@@ -1,15 +1,24 @@
-03:55:13 **** Build of configuration Release for project BuildScene ****
+15:25:24 **** Incremental Build of configuration Release for project BuildScene ****
 make all 
 Building file: ../build.cpp
 Invoking: Cross G++ Compiler
 g++ -I/usr/local/include/opencv -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"build.d" -MT"build.o" -o "build.o" "../build.cpp"
-Finished building: ../build.cpp
- 
-Building target: BuildScene
-Invoking: Cross G++ Linker
-g++ -L/usr/local/lib -o "BuildScene"  ./build.o   -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
-Finished building target: BuildScene
- 
+../build.cpp: In function ‘int matchframes(std::vector<cv::Mat*>**, std::vector<std::vector<cv::KeyPoint>*>**, std::vector<std::vector<cv::DMatch>*>**)’:
+../build.cpp:204:66: error: invalid conversion from ‘const char*’ to ‘int’ [-fpermissive]
+   Ptr<DescriptorMatcher> matcher = BFMatcher::create("BruteForce");
+                                                                  ^
+In file included from /usr/local/include/opencv2/calib3d.hpp:48:0,
+                 from /usr/local/include/opencv2/opencv.hpp:56,
+                 from ../build.cpp:12:
+/usr/local/include/opencv2/features2d.hpp:1047:35: note:   initializing argument 1 of ‘static cv::Ptr<cv::BFMatcher> cv::BFMatcher::create(int, bool)’
+     CV_WRAP static Ptr<BFMatcher> create( int normType=NORM_L2, bool crossCheck=false ) ;
+                                   ^
+../build.cpp: In function ‘int find3D(std::vector<cv::KeyPoint>*, std::vector<cv::KeyPoint>*, std::vector<Eigen::Matrix<double, -1, -1> >*, std::vector<Eigen::Matrix<double, -1, 1> >*, Eigen::MatrixXd**)’:
+../build.cpp:411:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'build.o' failed
+make: *** [build.o] Error 1
 
-03:56:03 Build Finished (took 50s.549ms)
+15:25:29 Build Finished (took 5s.182ms)
 
