@@ -4082,3 +4082,1625 @@ Invoking: Cross G++ Linker
 g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
 Finished building target: Reconstruct
  
+16:18:26 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:425:24: error: no matching function for call to ‘std::basic_ofstream<char>::basic_ofstream(cv::String&)’
+  ofstream file(filename);
+                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/global_motion.hpp:47:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/stabilizer.hpp:50,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab.hpp:78,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:98,
+                 from ../recon.cpp:10:
+/usr/include/c++/5/fstream:697:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ofstream(const char* __s,
+       ^
+/usr/include/c++/5/fstream:697:7: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const char*’
+/usr/include/c++/5/fstream:682:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream() [with _CharT = char; _Traits = std::char_traits<char>]
+       basic_ofstream(): __ostream_type(), _M_filebuf()
+       ^
+/usr/include/c++/5/fstream:682:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/5/fstream:656:11: note: candidate: std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/5/fstream:656:11: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const std::basic_ofstream<char>&’
+../recon.cpp:433:28: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for(unsigned int i = 0; i < points->at(0).cols; i++){
+                            ^
+../recon.cpp:436:36: error: no match for call to ‘(cv::Mat) (int, unsigned int&)’
+    file << "(" << points->at(j)(0,i) << "," << points->at(j)(1,i) << ")" << endl;
+                                    ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:3628:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note: candidate: cv::Mat cv::Mat::operator()(cv::Range, cv::Range) const
+ Mat Mat::operator()( Range _rowRange, Range _colRange ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note:   no known conversion for argument 1 from ‘int’ to ‘cv::Range’
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note: candidate: cv::Mat cv::Mat::operator()(const Rect&) const
+ Mat Mat::operator()( const Rect& roi ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note: candidate: cv::Mat cv::Mat::operator()(const cv::Range*) const
+ Mat Mat::operator()(const Range* ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note: candidate: cv::Mat cv::Mat::operator()(const std::vector<cv::Range>&) const
+ Mat Mat::operator()(const std::vector<Range>& ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note:   candidate expects 1 argument, 2 provided
+../recon.cpp:436:65: error: no match for call to ‘(cv::Mat) (int, unsigned int&)’
+    file << "(" << points->at(j)(0,i) << "," << points->at(j)(1,i) << ")" << endl;
+                                                                 ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:3628:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note: candidate: cv::Mat cv::Mat::operator()(cv::Range, cv::Range) const
+ Mat Mat::operator()( Range _rowRange, Range _colRange ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note:   no known conversion for argument 1 from ‘int’ to ‘cv::Range’
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note: candidate: cv::Mat cv::Mat::operator()(const Rect&) const
+ Mat Mat::operator()( const Rect& roi ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note: candidate: cv::Mat cv::Mat::operator()(const cv::Range*) const
+ Mat Mat::operator()(const Range* ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note: candidate: cv::Mat cv::Mat::operator()(const std::vector<cv::Range>&) const
+ Mat Mat::operator()(const std::vector<Range>& ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note:   candidate expects 1 argument, 2 provided
+../recon.cpp:440:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:19:07 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:425:24: error: no matching function for call to ‘std::basic_ofstream<char>::basic_ofstream(cv::String&)’
+  ofstream file(filename);
+                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/global_motion.hpp:47:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/stabilizer.hpp:50,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab.hpp:78,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:98,
+                 from ../recon.cpp:10:
+/usr/include/c++/5/fstream:697:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ofstream(const char* __s,
+       ^
+/usr/include/c++/5/fstream:697:7: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const char*’
+/usr/include/c++/5/fstream:682:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream() [with _CharT = char; _Traits = std::char_traits<char>]
+       basic_ofstream(): __ostream_type(), _M_filebuf()
+       ^
+/usr/include/c++/5/fstream:682:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/5/fstream:656:11: note: candidate: std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/5/fstream:656:11: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const std::basic_ofstream<char>&’
+../recon.cpp:436:36: error: no match for call to ‘(cv::Mat) (int, int&)’
+    file << "(" << points->at(j)(0,i) << "," << points->at(j)(1,i) << ")" << endl;
+                                    ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:3628:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note: candidate: cv::Mat cv::Mat::operator()(cv::Range, cv::Range) const
+ Mat Mat::operator()( Range _rowRange, Range _colRange ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note:   no known conversion for argument 1 from ‘int’ to ‘cv::Range’
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note: candidate: cv::Mat cv::Mat::operator()(const Rect&) const
+ Mat Mat::operator()( const Rect& roi ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note: candidate: cv::Mat cv::Mat::operator()(const cv::Range*) const
+ Mat Mat::operator()(const Range* ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note: candidate: cv::Mat cv::Mat::operator()(const std::vector<cv::Range>&) const
+ Mat Mat::operator()(const std::vector<Range>& ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note:   candidate expects 1 argument, 2 provided
+../recon.cpp:436:65: error: no match for call to ‘(cv::Mat) (int, int&)’
+    file << "(" << points->at(j)(0,i) << "," << points->at(j)(1,i) << ")" << endl;
+                                                                 ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:3628:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note: candidate: cv::Mat cv::Mat::operator()(cv::Range, cv::Range) const
+ Mat Mat::operator()( Range _rowRange, Range _colRange ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:822:5: note:   no known conversion for argument 1 from ‘int’ to ‘cv::Range’
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note: candidate: cv::Mat cv::Mat::operator()(const Rect&) const
+ Mat Mat::operator()( const Rect& roi ) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:828:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note: candidate: cv::Mat cv::Mat::operator()(const cv::Range*) const
+ Mat Mat::operator()(const Range* ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:834:5: note:   candidate expects 1 argument, 2 provided
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note: candidate: cv::Mat cv::Mat::operator()(const std::vector<cv::Range>&) const
+ Mat Mat::operator()(const std::vector<Range>& ranges) const
+     ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.inl.hpp:840:5: note:   candidate expects 1 argument, 2 provided
+../recon.cpp:440:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [recon.o] Error 1
+subdir.mk:18: recipe for target 'recon.o' failed
+16:22:02 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:425:24: error: no matching function for call to ‘std::basic_ofstream<char>::basic_ofstream(cv::String&)’
+  ofstream file(filename);
+                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/global_motion.hpp:47:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/stabilizer.hpp:50,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab.hpp:78,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:98,
+                 from ../recon.cpp:10:
+/usr/include/c++/5/fstream:697:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       basic_ofstream(const char* __s,
+       ^
+/usr/include/c++/5/fstream:697:7: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const char*’
+/usr/include/c++/5/fstream:682:7: note: candidate: std::basic_ofstream<_CharT, _Traits>::basic_ofstream() [with _CharT = char; _Traits = std::char_traits<char>]
+       basic_ofstream(): __ostream_type(), _M_filebuf()
+       ^
+/usr/include/c++/5/fstream:682:7: note:   candidate expects 0 arguments, 1 provided
+/usr/include/c++/5/fstream:656:11: note: candidate: std::basic_ofstream<char>::basic_ofstream(const std::basic_ofstream<char>&)
+     class basic_ofstream : public basic_ostream<_CharT,_Traits>
+           ^
+/usr/include/c++/5/fstream:656:11: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const std::basic_ofstream<char>&’
+../recon.cpp:436:40: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+../recon.cpp:436:72: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+../recon.cpp:440:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:24:28 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:426:20: error: no matching function for call to ‘std::basic_ofstream<char>::open(cv::String&)’
+  file.open(filename);
+                    ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/global_motion.hpp:47:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab/stabilizer.hpp:50,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/videostab.hpp:78,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:98,
+                 from ../recon.cpp:10:
+/usr/include/c++/5/fstream:799:7: note: candidate: void std::basic_ofstream<_CharT, _Traits>::open(const char*, std::ios_base::openmode) [with _CharT = char; _Traits = std::char_traits<char>; std::ios_base::openmode = std::_Ios_Openmode]
+       open(const char* __s,
+       ^
+/usr/include/c++/5/fstream:799:7: note:   no known conversion for argument 1 from ‘cv::String’ to ‘const char*’
+../recon.cpp:437:40: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+../recon.cpp:437:72: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+../recon.cpp:441:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:24:47 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:437:40: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:40: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                        ^
+../recon.cpp:437:72: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:72: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0, i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                        ^
+../recon.cpp:441:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:25:07 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:437:39: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:39: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+../recon.cpp:437:71: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:437:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+../recon.cpp:441:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:25:30 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:436:39: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:39: note:   cannot convert ‘0’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                       ^
+../recon.cpp:436:71: error: no matching function for call to ‘cv::Mat::at(int, int&)’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int)
+     template<typename _Tp> _Tp& at(int i0=0);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1870:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int) const
+     template<typename _Tp> const _Tp& at(int i0=0) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1874:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   candidate expects 1 argument, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int)
+     template<typename _Tp> _Tp& at(int row, int col);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1879:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int) const
+     template<typename _Tp> const _Tp& at(int row, int col) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1884:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   couldn't deduce template parameter ‘_Tp’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(int, int, int)
+     template<typename _Tp> _Tp& at(int i0, int i1, int i2);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1891:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(int, int, int) const
+     template<typename _Tp> const _Tp& at(int i0, int i1, int i2) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1897:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   candidate expects 3 arguments, 2 provided
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(const int*)
+     template<typename _Tp> _Tp& at(const int* idx);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1902:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(const int*) const
+     template<typename _Tp> const _Tp& at(const int* idx) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1906:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘const int*’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note: candidate: template<class _Tp, int n> _Tp& cv::Mat::at(const cv::Vec<int, n>&)
+     template<typename _Tp, int n> _Tp& at(const Vec<int, n>& idx);
+                                        ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1909:40: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note: candidate: template<class _Tp, int n> const _Tp& cv::Mat::at(const cv::Vec<int, n>&) const
+     template<typename _Tp, int n> const _Tp& at(const Vec<int, n>& idx) const;
+                                              ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1911:46: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   mismatched types ‘const cv::Vec<int, n>’ and ‘int’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note: candidate: template<class _Tp> _Tp& cv::Mat::at(cv::Point)
+     template<typename _Tp> _Tp& at(Point pt);
+                                 ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1917:33: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+In file included from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core.hpp:59:0,
+                 from /home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/opencv.hpp:52,
+                 from ../recon.cpp:10:
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note: candidate: template<class _Tp> const _Tp& cv::Mat::at(cv::Point) const
+     template<typename _Tp> const _Tp& at(Point pt) const;
+                                       ^
+/home/diego/softwares/opencv-3.3/build-all-modules/include/opencv2/core/mat.hpp:1922:39: note:   template argument deduction/substitution failed:
+../recon.cpp:436:71: note:   cannot convert ‘1’ (type ‘int’) to type ‘cv::Point {aka cv::Point_<int>}’
+    file << "(" << points->at(j).at(0,i) << "," << points->at(j).at(1,i) << ")" << endl;
+                                                                       ^
+../recon.cpp:440:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+subdir.mk:18: recipe for target 'recon.o' failed
+make: *** [recon.o] Error 1
+16:29:57 **** Incremental Build of configuration Debug for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+../recon.cpp: In function ‘int save2Dpoints(cv::String, std::vector<cv::Mat>*)’:
+../recon.cpp:441:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+16:32:26 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+16:35:29 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+16:42:04 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+16:44:12 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:03:12 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:11:56 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:13:19 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:14:58 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:16:49 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:18:28 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 
+17:19:30 **** Incremental Build of configuration Release for project Reconstruct ****
+make all 
+Building file: ../recon.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O3 -Wall -c -fmessage-length=0 -MMD -MP -MF"recon.d" -MT"recon.o" -o "recon.o" "../recon.cpp"
+Finished building: ../recon.cpp
+ 
+Building target: Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "Reconstruct"  ./recon.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: Reconstruct
+ 

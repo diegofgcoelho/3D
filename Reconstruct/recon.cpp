@@ -96,6 +96,9 @@ int main(int argc, char* argv[])
 	  cout << "We have a total of " << shape2D_code << " points." << endl;
   }
 
+  //Saving the 2D points
+  save2Dpoints("2Dpoints.txt", points);
+
   reconstruct(*points, Rs_est, ts_est, K, points3d_estimated, is_projective);
   // Print output
   cout << "\n----------------------------\n" << endl;
@@ -346,7 +349,7 @@ int gen2DpointsTable(vector< vector<DMatch>* >* vecmatches, vector< vector<KeyPo
 		//Create a new vector to be put in position i of the vector of vectors
 		vecID[i] = vector<int>(veckeypoints->at(i)->size(), -1);
 
-		//cout << "passou i = " << i << endl;
+		//for(unsigned int zz = 0; zz < vecID[i].size(); zz++) cout << "vecID[i] = " << vecID[i][zz] << endl;
 
 		//Run over all the matches
 		for(unsigned int j = 0; j < (*vecmatches)[i-1]->size(); j++){
@@ -383,8 +386,8 @@ int gen2DpointsTable(vector< vector<DMatch>* >* vecmatches, vector< vector<KeyPo
 
 	for(unsigned int i = 0; i < vecID.size(); i++){
 
-		//Defining the matrix for position i
-		Mat_<double> mat(2,maxInd);
+		//Defining the matrix for position i, with all the elements initialized to -1
+		Mat_<double> mat(2,maxInd, -1);
 
 		if(mat.empty()){
 			cout << "Matrix not allocated. Exiting ..." << endl;
@@ -409,8 +412,6 @@ int gen2DpointsTable(vector< vector<DMatch>* >* vecmatches, vector< vector<KeyPo
 	return maxInd+1;
 }
 
-
-//TODO
 int save2Dpoints(String filename, vector<Mat>* points){
 	/*
 	 * Input:
@@ -418,18 +419,31 @@ int save2Dpoints(String filename, vector<Mat>* points){
 	 * points is a pointer for the vector of Mat, where each element represents the occurrence of all the points in a frame
 	 * Output:
 	 * Description:
-	 * This function saves the 2D points pointed by points in the file named filaname, The points are saved as it appear in
+	 * This function saves the 2D points pointed by points in the file named filename, The points are saved as it appear in
 	 * the matrices representing each frame.
 	 */
 
-	ofstream file(filename);
+	ofstream file(filename.c_str());
+
+	if(!file.is_open()){
+		cout << "Error: sabe2Dpoints could not open the specified file." << endl;
+		return FAIL;
+	}
 
 	if(!file.is_open()){
 		cout << "Error: unable to open he file to save the 2D points." << endl;
 		return FAIL;
 	}
 
-	for(unsigned int i = 0; i < points->size(); i++){
-
+	//We use the fact that every mat have the same size
+	for(int i = 0; i < points->at(0).cols; i++){
+		file << i << "  ";
+		for(unsigned int j = 0; j < points->size(); j++){
+			Mat_<double> mat = points->at(j);
+			file << "(" << mat(0,i) << "," << mat(1,i) << ")";
+		}
+		file << endl;
 	}
+
+	return SUCCESS;
 }
