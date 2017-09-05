@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
   //Create pointer for STL vector containing all the frames
   vector<Mat*>* vecframes = NULL;
   //Defining subsampling constant
-  unsigned int stride = 5;
+  unsigned int stride = 3;
   //Reading frames from video
   int readframes_code = readframes(argv[1], stride, &vecframes);
 
@@ -94,6 +94,12 @@ int main(int argc, char* argv[])
   } else {
 	  cout << "Points reorganized successfully." << endl;
 	  cout << "We have a total of " << shape2D_code << " points." << endl;
+  }
+
+  //Printing the number of matches
+  for(unsigned int i = 0; i < vecmatches->size(); i++){
+	  cout << "vecmatches[" << i << "] has size " << vecmatches->at(i)->size() << endl;
+	  cout << "veckeypoints[" << i << "] has size " << veckeypoints->at(i)->size() << endl;
   }
 
   //Saving the 2D points
@@ -275,7 +281,7 @@ int matchframes(vector<Mat*>** vecframes, vector< vector<KeyPoint>* >** veckeypo
 
 		//Defining the descriptor matcher
 		//Ptr<DescriptorMatcher> matcher = BFMatcher::create("BruteForce");
-		Ptr<DescriptorMatcher> matcher = BFMatcher::create();
+		Ptr<DescriptorMatcher> matcher = BFMatcher::create(NORM_L2, false);
 
 		//Detecting keypoints for frame i+1
 		detector->detect((*(*vecframes)->at(i+1)), (*(*veckeypoints)->at(i+1)));
@@ -294,7 +300,7 @@ int matchframes(vector<Mat*>** vecframes, vector< vector<KeyPoint>* >** veckeypo
 
 		//Specifying a treshold to delete bad matches. Any matches whose distance is greater than treshold will be deleted.
 		double dtreshold = 500;
-		double atreshold = cos(5*M_PI/180);//When changing, remember that the argument have to be in the first quadrant!
+		double atreshold = cos(20*M_PI/180);//When changing, remember that the argument have to be in the first quadrant!
 		unsigned int j = 0;
 		while (j < pvecm->size()){//Note how the index j is incremented
 			//Getting the positions of the query and train keypoints
@@ -424,6 +430,7 @@ int save2Dpoints(String filename, vector<Mat>* points){
 	 */
 
 	ofstream file(filename.c_str());
+	ofstream file_metrics("2Dpoint_metrics.txt");
 
 	if(!file.is_open()){
 		cout << "Error: sabe2Dpoints could not open the specified file." << endl;
@@ -437,13 +444,23 @@ int save2Dpoints(String filename, vector<Mat>* points){
 
 	//We use the fact that every mat have the same size
 	for(int i = 0; i < points->at(0).cols; i++){
+		unsigned int pointViews = 0;
 		file << i << "  ";
 		for(unsigned int j = 0; j < points->size(); j++){
 			Mat_<double> mat = points->at(j);
 			file << "(" << mat(0,i) << "," << mat(1,i) << ")";
+
+			if(mat(0,i) != -1){
+				pointViews++;
+			}
 		}
 		file << endl;
+
+		file_metrics << pointViews << endl;
 	}
+
+	file.close();
+	file_metrics.close();
 
 	return SUCCESS;
 }

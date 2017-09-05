@@ -1,0 +1,22 @@
+15:10:17 **** Incremental Build of configuration Debug for project SplitVideo&Reconstruct ****
+make all 
+Building file: ../sources/main.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sources/main.d" -MT"sources/main.o" -o "sources/main.o" "../sources/main.cpp"
+../sources/main.cpp: In function ‘int main(int, char**)’:
+../sources/main.cpp:167:20: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+  for (int i = 0; i < points3d_estimated.size(); ++i)
+                    ^
+../sources/main.cpp:125:6: warning: unused variable ‘readframes_code’ [-Wunused-variable]
+  int readframes_code = readFramesSave(argv[1], atoi(argv[2]), pos);
+      ^
+Finished building: ../sources/main.cpp
+ 
+Building target: SplitVideo&Reconstruct
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "SplitVideo&Reconstruct"  ./sources/main.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d
+Finished building target: SplitVideo&Reconstruct
+ 
+
+15:10:19 Build Finished (took 2s.81ms)
+

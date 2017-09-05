@@ -1,0 +1,114 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Sep 5, 2017
+ *      Author: Diego
+ */
+
+#define CERES_FOUND true
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/sfm.hpp>
+#include <opencv2/viz.hpp>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/xfeatures2d.hpp>
+#include <opencv2/highgui.hpp>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
+#define SUCCESS 0
+#define FAIL -1
+#define FILE_FAIL -2
+
+using namespace std;
+using namespace cv;
+using namespace cv::xfeatures2d;
+using namespace cv::sfm;
+
+int readFramesSave(String filename, unsigned stride, vector<unsigned int> pos){
+	/*
+	 * Input:
+	 * filename is the string representing the file containing the video
+	 * stride represent the decimation constant for the frames to be read
+	 * pos is a vector of unsigned integers containing the frames postions that must be saved
+	 * Output:
+	 * None
+	 * Description:
+	 * this function read the frames from a video file with name filename and
+	 * undersample the frames according the constant stride (eg, if stride=2,
+	 * it will take only every other frame, if stride=3, it will take only one
+	 * in every 3 frames) and return and saves it in the local directory.
+	 */
+
+	//Video object that will be used for opening the video file
+	VideoCapture vid(filename);
+
+	//Opening the video
+	vid.open(filename);
+	//Sanity check
+	if(!vid.isOpened()){
+		cout << "Error: it is not possible to read the video file " << filename << endl;
+		return FILE_FAIL;
+	}
+
+	//Reading the total number of frames in the video object
+	unsigned int frame_count = vid.get(CV_CAP_PROP_FRAME_COUNT);
+
+	//Frame index
+	unsigned int frame_index = 0;
+
+	unsigned int zz = 0;
+
+	for(unsigned int i = 0; i < floor(frame_count/stride); i++){
+		//Updating the frame index
+		frame_index += stride;
+		//Setting frame index to be read
+		vid.set(CV_CAP_PROP_POS_FRAMES, frame_index);
+		if(pos[zz] == frame_index/stride){
+			zz++;
+			//Creating matrix
+			Mat* frame = new Mat;
+			//Reading frame
+			vid >> *frame;
+			stringstream ss;
+			ss << zz;
+			cout << "Saving frame" << endl;
+			imwrite("./"+ss.str()+".jpg", *frame);
+		}
+	}
+
+	return SUCCESS;
+}
+
+static void help() {
+  cout
+      << "\n------------------------------------------------------------------------------------\n"
+      << " This program ssaves specified frames of a video in the disk. Usage: \n"
+      << "        SplitVideo&Save <path_to_video file> stride pos0 pos1 pos2 ... posN\n"
+      << " where: path_to_file is the video file absolute path into your system which\n"
+      << "        stride is the decimation constant (stride) \n"
+	  << "        and pos0 pos1 ... are the positions of the frames to be saved after the subsampling \n"
+      << "------------------------------------------------------------------------------------\n\n"
+      << endl;
+}
+
+int main(int argc, char* argv[]){
+
+	help();
+	vector<unsigned> pos(argc-3);
+	for(unsigned int i = 0; i < pos.size(); i++){
+		pos[i] = atoi(argv[i+3]);
+	}
+
+	for(unsigned int i = 0; i < pos.size(); i++){
+		cout << "pos[i] = " << pos[i] << endl;
+	}
+
+	//Reading frames from video
+	int readframes_code = readFramesSave(argv[1], atoi(argv[2]), pos);
+}
+
+
