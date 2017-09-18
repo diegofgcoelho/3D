@@ -1,0 +1,29 @@
+/*
+ * MatchSet.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#ifndef MATCHSET_H_
+#define MATCHSET_H_
+
+#include "Includes.h"
+
+using namespace std;
+using namespace cv;
+
+class MatchSet {
+public:
+	MatchSet();
+	virtual ~MatchSet();
+	int generateKeyPoints();
+	int matchKeyPoints(unsigned int nNeighbors);
+
+private:
+	FrameSet frameSet;
+	vector<vector<KeyPoint> > keypoints;
+	vector<vector<vector<DMatch> > > matches;
+};
+
+#endif /* MATCHSET_H_ */

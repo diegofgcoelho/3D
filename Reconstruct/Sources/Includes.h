@@ -1,0 +1,29 @@
+/*
+ * Includes.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#ifndef INCLUDES_H_
+#define INCLUDES_H_
+
+#define CERES_FOUND true
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/sfm.hpp>
+#include <opencv2/viz.hpp>
+#include <opencv2/calib3d.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/features2d.hpp>
+#include <opencv2/xfeatures2d.hpp>
+#include <opencv2/highgui.hpp>
+#include <iostream>
+#include <fstream>
+
+#define SUCCESS 0
+#define FAIL -1
+#define FILE_FAIL -2
+
+
+#endif /* INCLUDES_H_ */

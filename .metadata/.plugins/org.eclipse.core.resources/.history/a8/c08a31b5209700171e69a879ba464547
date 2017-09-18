@@ -1,0 +1,17 @@
+/*
+ * MatchSet.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#ifndef MATCHSET_H_
+#define MATCHSET_H_
+
+class MatchSet {
+public:
+	MatchSet();
+	virtual ~MatchSet();
+};
+
+#endif /* MATCHSET_H_ */

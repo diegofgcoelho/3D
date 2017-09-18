@@ -1,0 +1,22 @@
+/*
+ * Organizer2D.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#ifndef ORGANIZER2D_H_
+#define ORGANIZER2D_H_
+
+#include "Includes.h"
+
+using namespace std;
+
+
+class Organizer2D {
+public:
+	Organizer2D();
+	virtual ~Organizer2D();
+};
+
+#endif /* ORGANIZER2D_H_ */

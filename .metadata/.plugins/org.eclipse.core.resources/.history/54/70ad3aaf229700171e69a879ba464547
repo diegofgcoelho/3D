@@ -1,0 +1,46 @@
+/*
+ * MatchSet.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "MatchSet.h"
+
+MatchSet::MatchSet() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MatchSet::~MatchSet() {
+	// TODO Auto-generated destructor stub
+}
+
+int MatchSet::generateKeyPoints() {
+	/*
+	 * Input:
+	 * Output:
+	 * Description:
+	 * This method computes all the keypoints for the frames in the attribute object FrameSet
+	 */
+
+	//Defining detector that will be used for detecting the features in all frames. Using default values
+	Ptr<SURF> detector = SURF::create(400, 4, 3, false, false);
+
+	//Defining the descriptors for the frames that will be used inside the for loop
+	Mat descriptors_0, descriptors_1;
+
+	//Allocating memory for the keypoints of the first frame
+	(*veckeypoints)->at(0) = new vector<KeyPoint>();
+	//Computing the keypoints for the first frame
+	detector->detect((*(*vecframes)->at(0)), (*(*veckeypoints)->at(0)));
+	//Computing the descriptors for the first frame
+	detector->compute((*(*vecframes)->at(0)), (*(*veckeypoints)->at(0)), descriptors_1);
+
+}
+
+int MatchSet::matchKeyPoints(unsigned int nNeighbors) {
+}
+
+vector<vector<vector<DMatch> > > MatchSet::getMatches() {
+}

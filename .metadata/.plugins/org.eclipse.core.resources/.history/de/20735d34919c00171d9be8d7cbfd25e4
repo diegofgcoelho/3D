@@ -1,0 +1,38 @@
+/*
+ * Organizer2D.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#ifndef ORGANIZER2D_H_
+#define ORGANIZER2D_H_
+
+#include "Includes.h"
+
+using namespace std;
+using namespace cv;
+
+
+class Organizer2D {
+public:
+	Organizer2D();
+	virtual ~Organizer2D();
+	inline vector<Mat> getPoints(){
+		return this->points;
+	}
+	int organizePoints(vector<vector<vector<DMatch> > > matches, vector<vector<KeyPoint> > keypoints);
+	int savePoints(string filename);
+	inline unsigned int getMinOcc(){
+		return this->minOcc;
+	}
+	inline void setMinOcc(unsigned int min){
+		this->minOcc = min;
+	}
+private:
+	vector<Mat> points;
+	unsigned int minOcc = 4;
+	void cleanPoints();
+};
+
+#endif /* ORGANIZER2D_H_ */

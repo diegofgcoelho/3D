@@ -1,0 +1,189 @@
+/*
+ * Organizer2D.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "Organizer2D.h"
+
+Organizer2D::Organizer2D() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Organizer2D::~Organizer2D() {
+	// TODO Auto-generated destructor stub
+}
+
+int Organizer2D::organizePoints(vector<vector<vector<DMatch> > > matches, vector<vector<KeyPoint> > keypoints) {
+	/*
+	 * Input:
+	 * matches is the vector of matches to be organized
+	 * keypoints is the vector of keypoints mapped by the vectors of matches
+	 * Output:
+	 * Description:
+	 * This method organizes the occurence of the 2D points projections in each frame.
+	 * this is required for the the sfm:reconstruct method used in his project.
+	 */
+
+	//Resizing the attribute points
+	this->points.resize(keypoints.size());
+
+	/*
+	 * Defining temporary vector of vectors of int to store the indexes for each point.
+	 * Each ith component of the outer vector is a vector, which contain the indexes of all
+	 * the points appearing in the frame in the ith position. Points that does not appear in
+	 * that particular frame have -1 index.
+	 */
+	vector<vector<int> > vecID(this->points.size());
+	//Resizing the first vector of indexes for the first frame
+	vecID.at(0) = vector<int>(keypoints.at(0).size(), -1);
+
+	//The very first case have to e treated separately
+
+	//Assigning the index for the points in the first frame.
+	for(unsigned int i = 0; i < vecID.at(0).size(); i++) vecID.at(0).at(i) = vector<int>(keypoints.at(i).size());
+
+	//Maximum index. It will be updated when new points are read
+	unsigned int maxInd = vecID.at(0)->size()-1;
+
+	cout << "vecID.size = " <<  vecID.size() << endl;
+
+	//Determining the indexes of points in other frames
+	for(unsigned int i = 1; i < this->points.size(); i++){
+		cout << "going into another loop = " << matches.at(i-1).size() << endl;
+		//Resizing the vecID.at(i) and filling it with -1
+		vecID.at(i) = new vector<int>(keypoints.at(i).size(), -1);
+		cout << "here i = " << i << endl;
+		cout << "size = " << vecID.at(i)->size() << endl;
+
+		//Check the matches and assign indexes for the points
+
+		//Run over all the matches for each frame
+		for(unsigned int j = 0; j < matches.at(i-1).size(); j++){
+			//Run over all the matches for each neighbor frame
+			for(unsigned int k = 0; k < matches.at(i-1).at(j).size(); k++){
+				//Here we are inside the inner vector with the actual matches
+
+				//Extract the query and train index
+				int queryInd = matches.at(i-1).at(j).at(k).queryIdx;
+				int trainInd = matches.at(i-1).at(j).at(k).trainIdx;
+
+				//Determine the index
+				cout << "matches size " << matches.at(i-1).at(j).size() << endl;
+				cout << "keypoints i-1 size " << keypoints.at(i-1).size() << endl;
+				cout << "keypoints i size " << keypoints.at(i).size() << endl;
+				cout << "queryIndx " <<  queryInd << endl;
+				cout << "trainIndx " <<  trainInd << endl;
+				int index = vecID.at(i-1)->at(queryInd);
+
+				//cout << "i = " << i << " j = " << j << " k = " << k << " vec size " << matches.at(i-1).at(j).size() << endl;
+
+				/*
+				 * If the index is -1, which means that this element have not been matched so far,
+				 * we create add one -1 to the vector of negative indexes and the new indexes
+				 */
+				if(index == -1){
+					maxInd++;
+					cout << "Executing first if here " << endl;
+					if(static_cast<int>(vecID.at(i-1)->size()-1) < queryInd) vecID.at(i-1)->push_back(queryInd); else vecID[i-1]->at(queryInd) = maxInd;
+
+					cout << "Executing second if here " << endl;
+					if(static_cast<int>(vecID.at(i)->size()-1) < trainInd) vecID.at(i)->push_back(trainInd); else vecID[i]->at(trainInd) = maxInd;
+
+				}else{
+					cout << "Executing else here " << endl;
+					if(static_cast<int>(vecID.at(i)->size()-1) < trainInd) vecID.at(i)->push_back(trainInd); else vecID.at(i)->at(trainInd) = index;
+				}
+
+			}
+		}
+		cout << "the end " << endl;
+	}
+
+	/*
+	 * Up to this point, it is assumed that now we have the indexes in the vecID vector of vector of ints. We
+	 * now start to build the table with the actual 2D points.
+	 */
+
+	this->points.reserve(vecID.size());
+
+	for(unsigned int i = 0; i < vecID.size(); i++){
+
+		//Defining the matrix for position i, with all the elements initialized to -1
+		Mat_<double> mat(2,maxInd, -1);
+
+		if(mat.empty()){
+			cout << "Matrix not allocated. Exiting ..." << endl;
+			exit(-1);
+		}
+
+		//Filling the matrix for position i
+		for(unsigned int j = 0; j < vecID.at(i)->size(); j++){
+
+			//If the index is negative, we could not resolve which is the index
+			if(vecID.at(i)->at(j) != -1){
+				mat(0,vecID.at(i)->at(j)) = keypoints.at(i).at(j).pt.x;
+				mat(1,vecID.at(i)->at(j)) = keypoints.at(i).at(j).pt.y;
+			}
+
+		}
+
+		//Passing the matrix the matrix to position i in points
+		this->points.push_back(Mat(mat));
+	}
+
+	for(unsigned int i = 0; i < vecID.size(); i++){
+		delete vecID.at(i);
+	}
+
+	return maxInd+1;
+
+}
+
+int Organizer2D::savePoints(string filename) {
+	/*
+	 * Input:
+	 * filename contains the string representing the file that the data will be saved in
+	 * Output:
+	 * Description:
+	 * This method saves the 2D points pointed by points attribute in the file named filename.
+	 *  The points are saved as it appear in the matrices representing each frame.
+	 */
+
+	ofstream file(filename.c_str());
+	ofstream file_metrics("2Dpoint_metrics.txt");
+
+	if(!file.is_open()){
+		cout << "Error: sabe2Dpoints could not open the specified file." << endl;
+		return FAIL;
+	}
+
+	if(!file.is_open()){
+		cout << "Error: unable to open he file to save the 2D points." << endl;
+		return FAIL;
+	}
+
+	//We use the fact that every mat have the same size
+	for(int i = 0; i < this->points.at(0).cols; i++){
+		unsigned int pointViews = 0;
+		file << i << "  ";
+		for(unsigned int j = 0; j < this->points.size(); j++){
+			Mat_<double> mat = this->points.at(j);
+			file << "(" << mat(0,i) << "," << mat(1,i) << ")";
+
+			if(mat(0,i) != -1){
+				pointViews++;
+			}
+		}
+		file << endl;
+
+		file_metrics << pointViews << endl;
+	}
+
+	file.close();
+	file_metrics.close();
+
+	return SUCCESS;
+}

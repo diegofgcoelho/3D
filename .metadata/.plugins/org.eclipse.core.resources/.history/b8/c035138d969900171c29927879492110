@@ -1,0 +1,118 @@
+/*
+ * MatchSet.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "MatchSet.h"
+
+MatchSet::MatchSet() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MatchSet::MatchSet(string videoName, unsigned int stride, unsigned int start) {
+	this->frameSet.setVideo(videoName, stride, start);
+}
+
+MatchSet::MatchSet(FrameSet frames) {
+	this->frameSet = frames;
+}
+
+MatchSet::~MatchSet() {
+	// TODO Auto-generated destructor stub
+}
+
+int MatchSet::generateKeyPointsAndDescriptors() {
+	/*
+	 * Input:
+	 * Output:
+	 * Description:
+	 * This method computes all the keypoints for the frames in the attribute object FrameSet
+	 */
+
+	//Defining detector that will be used for detecting the features in all frames. Using default values
+	Ptr<SURF> detector = SURF::create(400, 4, 3, false, false);
+
+	//Resizing the descriptor vector and keypoints vector
+	this->descriptos.resize(this->frameSet.getNFrames());
+	this->keypoints.resize(this->frameSet.getNFrames());
+
+	for(int i = 0; i < this->frameSet.getNFrames(); i++){
+		//Computing the keypoints
+		detector->detect(this->frameSet.getFrames().at(i), this->keypoints.at(i));
+
+		//Computing the descriptors
+		detector->compute(this->frameSet.getFrames().at(i), this->keypoints.at(i), this->descriptos.at(i));
+	}
+
+	return SUCCESS;
+}
+
+int MatchSet::generateMatches(unsigned int nNeighbors) {
+	/*
+	 * Input:
+	 * nNeighbors specify the number of neighbor frames we will consider for matching
+	 * for each single frame.
+	 * Output:
+	 * Description:
+	 * This method matches all the frames and generate the matches attribute. For example,
+	 * if nNieghbors = 5, each frame will be matched against the next 5 frames at its right.
+	 */
+
+	//Defining the descriptor matcher
+	Ptr<DescriptorMatcher> matcher = BFMatcher::create(NORM_L2, false);
+
+
+	//Resizing the number of matches
+	this->matches.resize(this->frameSet.getNFrames());
+
+	for(int i = 0; i < this->frameSet.getNFrames(); i++){
+
+		//The number of matches is the minimum between the number of neighbors and the distance to the end
+		unsigned int dsize = min(this->frameSet.getNFrames()-1-i, static_cast<int>(nNeighbors));
+
+		//Resizing the number of matches for the ith frame
+		this->matches.at(i).resize(dsize);
+
+		//Performing the matches for each frame
+		for(unsigned int j = 0; j < dsize; j++){
+			matcher->match(this->descriptos.at(i), this->descriptos.at(i+j+1), this->matches.at(i).at(j));
+
+			/*
+			 * Cleaning up the matches. Specifying a treshold to delete bad matches.
+			 * Any matches whose distance is greater than treshold will be deleted.
+			 */
+			double dtreshold = 500;
+			double atreshold = cos(20*M_PI/180);//When changing, remember that the argument have to be in the first quadrant!
+
+			unsigned int k = 0;
+			while (k < this->matches.at(i).at(j).size()){//Note how the index k is incremented
+
+				//Getting the positions of the query and train keypoints
+				Point2f kp0 = this->keypoints.at(i).at(this->matches.at(i).at(j).at(k).queryIdx).pt;
+				Point2f kp1 = this->keypoints.at(i+j+1).at(this->matches.at(i).at(j).at(k).trainIdx).pt;
+
+				Point2f dkp = kp1-kp0;
+				//Computing the Euclidean distance between the pixels of the matching keypoints
+				double dist = norm(dkp);
+
+				//Computing the angle between the keypoints when images are side by side
+				Point2f framedim = Point2f(this->frameSet.getFrames().at(0).cols, 0.0);
+
+				//Shift only kp1
+				kp1 = kp1+framedim;
+
+				//Updating dkp (the difference between the keypoint of frame i and the shifted keypoint of frame i+j+1)
+				dkp = kp1-kp0;
+				double ang = dkp.x/norm(dkp);
+
+				//Eliminating matches whose distance is greater than the minimum
+				if((dist > dtreshold) || (fabs(ang) < atreshold)) this->matches.at(i).at(j).erase(this->matches.at(i).at(j).begin()+k); else k++;
+			}
+		}
+	}
+
+	return SUCCESS;
+}

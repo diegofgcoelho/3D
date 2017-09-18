@@ -1,0 +1,15 @@
+23:10:24 **** Build of configuration Debug for project CalibTutorial ****
+make all 
+Building file: ../sources/main.cpp
+Invoking: Cross G++ Compiler
+g++ -I/home/diego/softwares/opencv-3.3/build-all-modules/include -I/home/diego/softwares/eigen3.3 -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"sources/main.d" -MT"sources/main.o" -o "sources/main.o" "../sources/main.cpp"
+Finished building: ../sources/main.cpp
+ 
+Building target: CalibTutorial
+Invoking: Cross G++ Linker
+g++ -L/home/diego/softwares/opencv-3.3/build-all-modules/lib -o "CalibTutorial"  ./sources/main.o   -lopencv_core -lopencv_viz -lopencv_sfm -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_xfeatures2d -lopencv_features2d -lopencv_calib3d
+Finished building target: CalibTutorial
+ 
+
+23:10:25 Build Finished (took 1s.862ms)
+

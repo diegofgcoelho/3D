@@ -11,6 +11,7 @@ org.eclipse.launchbar.core.descriptorType.default\:ReadFrames/activeLaunchMode=r
 org.eclipse.launchbar.core.descriptorType.default\:ReadFrames/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Reconstruct/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Reconstruct/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Reconstruct_Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Reconstruct_Release/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:reconstruct/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:reconstruct/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

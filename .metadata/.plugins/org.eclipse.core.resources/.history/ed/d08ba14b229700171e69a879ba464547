@@ -1,0 +1,26 @@
+/*
+ * MatchSet.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "MatchSet.h"
+
+MatchSet::MatchSet() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MatchSet::~MatchSet() {
+	// TODO Auto-generated destructor stub
+}
+
+int MatchSet::generateKeyPoints() {
+}
+
+int MatchSet::matchKeyPoints(unsigned int nNeighbors) {
+}
+
+vector<vector<vector<DMatch> > > MatchSet::getMatches() {
+}

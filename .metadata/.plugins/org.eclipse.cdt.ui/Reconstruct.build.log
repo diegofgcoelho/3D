@@ -1,6 +1,6 @@
-14:49:27 **** Incremental Build of configuration Release for project Reconstruct ****
+12:00:55 **** Incremental Build of configuration Debug for project Reconstruct ****
 make all 
 make: Nothing to be done for 'all'.
 
-14:49:27 Build Finished (took 135ms)
+12:00:55 Build Finished (took 228ms)
 

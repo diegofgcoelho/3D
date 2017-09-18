@@ -1,0 +1,17 @@
+/*
+ * FrameSet.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#ifndef FRAMESET_H_
+#define FRAMESET_H_
+
+class FrameSet {
+public:
+	FrameSet();
+	virtual ~FrameSet();
+};
+
+#endif /* FRAMESET_H_ */

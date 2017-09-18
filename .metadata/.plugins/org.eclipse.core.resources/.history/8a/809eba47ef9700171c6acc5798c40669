@@ -1,0 +1,13 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "Includes.h"
+
+using namespace std;
+using namespace cv;
+using namespace cv::xfeatures2d;
+using namespace cv::sfm;

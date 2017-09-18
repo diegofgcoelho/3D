@@ -1,0 +1,203 @@
+/*
+ * Organizer2D.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: Diego Coelho, PhD Candidate, UofC
+ */
+
+#include "Organizer2D.h"
+
+Organizer2D::Organizer2D() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Organizer2D::~Organizer2D() {
+	// TODO Auto-generated destructor stub
+}
+
+int Organizer2D::organizePoints(vector<vector<vector<DMatch> > > matches, vector<vector<KeyPoint> > keypoints) {
+	/*
+	 * Input:
+	 * matches is the vector of matches to be organized
+	 * keypoints is the vector of keypoints mapped by the vectors of matches
+	 * Output:
+	 * Description:
+	 * This method organizes the occurence of the 2D points projections in each frame.
+	 * this is required for the the sfm:reconstruct method used in his project.
+	 */
+
+	//Resizing the attribute points
+	this->points.resize(keypoints.size());
+
+	/*
+	 * Defining temporary vector of vectors of int to store the indexes for each point.
+	 * Each ith component of the outer vector is a vector, which contain the indexes of all
+	 * the points appearing in the frame in the ith position. Points that does not appear in
+	 * that particular frame have -1 index.
+	 */
+	vector<vector<int>* > vecID(this->points.size());
+
+	//Defining the first vectors of indexes
+	for(unsigned int i = 0; i < vecID.size(); i++) vecID.at(i) = new vector<int>(keypoints.at(i).size(), -1);
+	//The first case is treated separately
+	for(unsigned int i = 0; i < vecID.at(0)->size(); i++) vecID.at(0)->at(i) = i;
+
+	//Maximum index
+	unsigned int maxInd = vecID.at(0)->size()-1;
+
+	for(unsigned int i = 1; i < vecID.size(); i++){
+		//Defining the vecID component for frame i
+		vecID.at(i) = new vector<int>(keypoints.at(i).size(), -1);
+
+		for(unsigned int j = 0; j < matches.at(i-1).size(); j++){
+			for(unsigned int k = 0; k < matches.at(i-1).at(j).size(); k++){
+
+				int queryInd = matches.at(i-1).at(j).at(k).queryIdx;
+				int trainInd = matches.at(i-1).at(j).at(k).trainIdx;
+
+				/*
+				 * If it is -1, then the point is newly discovered. Then we need to increase
+				 * the maximum index, which is the number of points-1. If not, we just
+				 * copy the index from the query to the train
+				 */
+				if(vecID.at(i-1)->at(queryInd) == -1){
+					maxInd++;
+					//Update the value in the previous (i-1th) vecID
+					vecID.at(i-1)->at(queryInd) = maxInd;
+					//Update the value in the current (ith) vecID
+					vecID.at(i+j)->at(trainInd) = maxInd;
+					//here is not i ... i+j+1
+				} else vecID.at(i+j)->at(trainInd) = vecID.at(i-1)->at(queryInd);
+			}
+		}
+	}
+
+	/*
+	 * Up to this point, it is assumed that now we have the indexes in the vecID vector of vector of ints. We
+	 * now start to build the table with the actual 2D points.
+	 */
+
+	this->points = vector<Mat>(vecID.size());
+
+	for(unsigned int i = 0; i < vecID.size(); i++){
+
+		//Defining the matrix for position i, with all the elements initialized to -1
+		Mat_<double> mat(2,maxInd+1, -1);
+
+		if(mat.empty()){
+			cout << "Matrix not allocated. Exiting ..." << endl;
+			exit(-1);
+		}
+
+
+		unsigned int pointViews = 0;
+
+		//Filling the matrix for position i
+		for(unsigned int j = 0; j < vecID.at(i)->size(); j++){
+
+			//If the index is negative, we could not resolve which is the index
+			if(vecID.at(i)->at(j) != -1){
+				pointViews++;
+				//cout << "i = " << i << "j = " <<j << " vecID.at(i)->at(j) " << vecID.at(i)->at(j) << endl;
+				mat(0,vecID.at(i)->at(j)) = keypoints.at(i).at(j).pt.x;
+				mat(1,vecID.at(i)->at(j)) = keypoints.at(i).at(j).pt.y;
+			}
+
+		}
+
+		//Passing the matrix the matrix to position i in points
+		this->points.at(i) = Mat(mat);
+		cout <<"i = " << i << " pointViews = " << pointViews << endl;
+	}
+
+	cout << "vecID.size = " << vecID.size() << endl;
+
+	//Freeing the memory pointed by the elements of vecID
+	for(unsigned int i = 0; i < vecID.size(); i++){
+		delete vecID.at(i);
+	}
+
+	return maxInd+1;
+
+}
+
+int Organizer2D::savePoints(string filename) {
+	/*
+	 * Input:
+	 * filename contains the string representing the file that the data will be saved in
+	 * Output:
+	 * Description:
+	 * This method saves the 2D points pointed by points attribute in the file named filename.
+	 *  The points are saved as it appear in the matrices representing each frame.
+	 */
+
+	ofstream file(filename.c_str());
+	ofstream file_occurence("2Dpoints_occurence.txt");
+	ofstream file_per_frame("2Dpoints_per_frame.txt");
+
+	if(!file.is_open()){
+		cout << "Error: sabe2Dpoints could not open the specified file." << endl;
+		return FAIL;
+	}
+
+	if(!file.is_open()){
+		cout << "Error: unable to open he file to save the 2D points." << endl;
+		return FAIL;
+	}
+
+	//We use the fact that every mat have the same size
+	for(int i = 0; i < this->points.at(0).cols; i++){
+		unsigned int pointViews = 0, cPointViews = 0;
+		file << i << "  ";
+		for(unsigned int j = 0; j < this->points.size(); j++){
+			Mat_<double> mat = this->points.at(j);
+			file << "(" << mat(0,i) << "," << mat(1,i) << ")";
+
+			if(mat(0,i) != -1) pointViews++; else cPointViews++;
+		}
+		file << endl;
+
+		file_occurence << pointViews << "  " << cPointViews << endl;
+	}
+
+	//We use the fact that every mat have the same size
+	for(unsigned int i = 0; i < this->points.size(); i++){
+		unsigned int pointViews = 0, cPointViews = 0;
+		file_per_frame << i << "  ";
+		Mat_<double> mat = this->points.at(i);
+		for(int j = 0; j < this->points.at(0).cols; j++){
+			if(mat(0,j) != -1) pointViews++; else cPointViews++;
+		}
+
+		file_per_frame << pointViews << "  " << cPointViews << endl;
+	}
+
+	file.close();
+	file_occurence.close();
+	file_per_frame.close();
+
+	return SUCCESS;
+}
+
+void Organizer2D::cleanPoints() {
+	/*
+	 * Input:
+	 * Output:
+	 * Description:
+	 * This method cleans up the table with 2D points. It is a private method and called by the organizerPoints method.
+	 */
+
+	//The total number of points found originally
+	unsigned int fullLength = this->points.at(0).cols;
+
+	//Vector storing the occurrence of each point
+	vector<unsigned int> occurrences(fullLength,0);
+
+	for(unsigned int i = 0; i < this->points.size(); i++){
+		Mat_<double> mat = this->points.at(i);
+		for(unsigned int j = 0; j < fullLength; j++){
+
+		}
+	}
+}

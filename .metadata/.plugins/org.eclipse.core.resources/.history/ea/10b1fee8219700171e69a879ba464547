@@ -1,0 +1,18 @@
+/*
+ * MatchSet.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#include "MatchSet.h"
+
+MatchSet::MatchSet() {
+	// TODO Auto-generated constructor stub
+
+}
+
+MatchSet::~MatchSet() {
+	// TODO Auto-generated destructor stub
+}
+

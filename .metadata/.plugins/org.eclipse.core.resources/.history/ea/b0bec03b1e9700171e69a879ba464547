@@ -1,0 +1,29 @@
+/*
+ * FrameSet.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#ifndef FRAMESET_H_
+#define FRAMESET_H_
+
+using namespace std;
+using namespace cv;
+
+class FrameSet {
+public:
+	FrameSet();
+	virtual ~FrameSet();
+	int setVideo(string videoName, int stride = 5, int start = 0);
+	inline int getFrames(){
+		return this->frames;
+	}
+	inline int getNFrames(){
+		return this->frames.size();
+	}
+private:
+	vector<Mat> frames;
+};
+
+#endif /* FRAMESET_H_ */

@@ -1,0 +1,18 @@
+/*
+ * FrameSet.cpp
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#include "FrameSet.h"
+
+FrameSet::FrameSet() {
+	// TODO Auto-generated constructor stub
+
+}
+
+FrameSet::~FrameSet() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -1,0 +1,17 @@
+/*
+ * Organizer2D.h
+ *
+ *  Created on: Sep 11, 2017
+ *      Author: diego
+ */
+
+#ifndef ORGANIZER2D_H_
+#define ORGANIZER2D_H_
+
+class Organizer2D {
+public:
+	Organizer2D();
+	virtual ~Organizer2D();
+};
+
+#endif /* ORGANIZER2D_H_ */
